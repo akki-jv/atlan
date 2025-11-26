@@ -1,0 +1,44 @@
+LAST SEEN   TYPE      REASON              OBJECT                                  MESSAGE
+37m         Normal    Scheduled           pod/backend-deploy-6dd658b4bd-5w5k5     Successfully assigned default/backend-deploy-6dd658b4bd-5w5k5 to atlan-worker2
+37m         Normal    Pulling             pod/backend-deploy-6dd658b4bd-5w5k5     Pulling image "hashicorp/http-echo:0.2.3"
+37m         Normal    Scheduled           pod/frontend-deploy-ccf677f5-878n8      Successfully assigned default/frontend-deploy-ccf677f5-878n8 to atlan-worker
+37m         Normal    ScalingReplicaSet   deployment/backend-deploy               Scaled up replica set backend-deploy-6dd658b4bd from 0 to 1
+37m         Normal    SuccessfulCreate    replicaset/frontend-deploy-ccf677f5     Created pod: frontend-deploy-ccf677f5-878n8
+37m         Normal    SuccessfulCreate    replicaset/backend-deploy-6dd658b4bd    Created pod: backend-deploy-6dd658b4bd-5w5k5
+37m         Normal    ScalingReplicaSet   deployment/frontend-deploy              Scaled up replica set frontend-deploy-ccf677f5 from 0 to 1
+37m         Normal    Pulled              pod/backend-deploy-6dd658b4bd-5w5k5     Successfully pulled image "hashicorp/http-echo:0.2.3" in 5.477s (5.477s including waiting). Image size: 1535358 bytes.
+34m         Normal    Pulling             pod/frontend-deploy-ccf677f5-878n8      Pulling image "curlimages/curl:8.0.1"
+34m         Warning   Failed              pod/frontend-deploy-ccf677f5-878n8      Failed to pull image "curlimages/curl:8.0.1": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/curlimages/curl:8.0.1": failed to resolve reference "docker.io/curlimages/curl:8.0.1": docker.io/curlimages/curl:8.0.1: not found
+34m         Warning   Failed              pod/frontend-deploy-ccf677f5-878n8      Error: ErrImagePull
+21m         Normal    Created             pod/backend-deploy-6dd658b4bd-5w5k5     Created container: backend
+21m         Normal    Started             pod/backend-deploy-6dd658b4bd-5w5k5     Started container backend
+12m         Warning   Failed              pod/frontend-deploy-ccf677f5-878n8      Error: ImagePullBackOff
+12m         Normal    BackOff             pod/frontend-deploy-ccf677f5-878n8      Back-off pulling image "curlimages/curl:8.0.1"
+9m5s        Normal    SuccessfulCreate    replicaset/frontend-deploy-7956ddbd89   Created pod: frontend-deploy-7956ddbd89-vprh2
+9m5s        Normal    Scheduled           pod/frontend-deploy-7956ddbd89-vprh2    Successfully assigned default/frontend-deploy-7956ddbd89-vprh2 to atlan-worker
+9m5s        Normal    ScalingReplicaSet   deployment/frontend-deploy              Scaled up replica set frontend-deploy-7956ddbd89 from 0 to 1
+9m5s        Normal    Pulling             pod/frontend-deploy-7956ddbd89-vprh2    Pulling image "curlimages/curl:latest"
+8m58s       Normal    Created             pod/frontend-deploy-7956ddbd89-vprh2    Created container: frontend
+8m58s       Normal    Pulled              pod/frontend-deploy-7956ddbd89-vprh2    Successfully pulled image "curlimages/curl:latest" in 7.025s (7.025s including waiting). Image size: 10184433 bytes.
+8m58s       Normal    Started             pod/frontend-deploy-7956ddbd89-vprh2    Started container frontend
+8m57s       Normal    SuccessfulDelete    replicaset/frontend-deploy-ccf677f5     Deleted pod: frontend-deploy-ccf677f5-878n8
+8m57s       Normal    ScalingReplicaSet   deployment/frontend-deploy              Scaled down replica set frontend-deploy-ccf677f5 from 1 to 0
+7m18s       Warning   BackOff             pod/backend-deploy-6dd658b4bd-5w5k5     Back-off restarting failed container backend in pod backend-deploy-6dd658b4bd-5w5k5_default(192fa2a3-92fc-46b8-bd94-66f1e8ab1011)
+5m47s       Normal    Pulled              pod/backend-deploy-6dd658b4bd-5w5k5     Container image "hashicorp/http-echo:0.2.3" already present on machine
+4m29s       Normal    Scheduled           pod/backend-deploy-6dd658b4bd-778ld     Successfully assigned default/backend-deploy-6dd658b4bd-778ld to atlan-worker
+4m29s       Normal    SuccessfulCreate    replicaset/backend-deploy-6dd658b4bd    Created pod: backend-deploy-6dd658b4bd-778ld
+4m28s       Normal    Pulling             pod/backend-deploy-6dd658b4bd-778ld     Pulling image "hashicorp/http-echo:0.2.3"
+4m23s       Normal    Pulled              pod/backend-deploy-6dd658b4bd-778ld     Successfully pulled image "hashicorp/http-echo:0.2.3" in 4.976s (4.976s including waiting). Image size: 1535358 bytes.
+2m52s       Normal    Created             pod/backend-deploy-6dd658b4bd-778ld     Created container: backend
+2m52s       Normal    Pulled              pod/backend-deploy-6dd658b4bd-778ld     Container image "hashicorp/http-echo:0.2.3" already present on machine
+2m52s       Normal    Started             pod/backend-deploy-6dd658b4bd-778ld     Started container backend
+107s        Normal    ScalingReplicaSet   deployment/backend-deploy               Scaled up replica set backend-deploy-76b575b758 from 0 to 1
+107s        Normal    SuccessfulCreate    replicaset/backend-deploy-76b575b758    Created pod: backend-deploy-76b575b758-krx4v
+107s        Normal    Pulling             pod/backend-deploy-76b575b758-krx4v     Pulling image "python:3.11-alpine"
+107s        Normal    Scheduled           pod/backend-deploy-76b575b758-krx4v     Successfully assigned default/backend-deploy-76b575b758-krx4v to atlan-worker2
+106s        Warning   BackOff             pod/backend-deploy-6dd658b4bd-778ld     Back-off restarting failed container backend in pod backend-deploy-6dd658b4bd-778ld_default(2a79d5f5-c0f8-4148-9227-75e1b6bf134d)
+98s         Normal    ScalingReplicaSet   deployment/backend-deploy               Scaled down replica set backend-deploy-6dd658b4bd from 1 to 0
+98s         Normal    Started             pod/backend-deploy-76b575b758-krx4v     Started container backend
+98s         Normal    Created             pod/backend-deploy-76b575b758-krx4v     Created container: backend
+98s         Normal    Pulled              pod/backend-deploy-76b575b758-krx4v     Successfully pulled image "python:3.11-alpine" in 8.836s (8.836s including waiting). Image size: 20642860 bytes.
+98s         Normal    SuccessfulDelete    replicaset/backend-deploy-6dd658b4bd    Deleted pod: backend-deploy-6dd658b4bd-778ld

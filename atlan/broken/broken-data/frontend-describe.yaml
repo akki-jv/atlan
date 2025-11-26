@@ -1,0 +1,71 @@
+Name:             frontend-deploy-ccf677f5-878n8
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             atlan-worker/172.18.0.2
+Start Time:       Tue, 25 Nov 2025 23:41:45 +0530
+Labels:           app=frontend
+                  pod-template-hash=ccf677f5
+Annotations:      <none>
+Status:           Pending
+IP:               10.244.1.2
+IPs:
+  IP:           10.244.1.2
+Controlled By:  ReplicaSet/frontend-deploy-ccf677f5
+Containers:
+  frontend:
+    Container ID:  
+    Image:         curlimages/curl:8.0.1
+    Image ID:      
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/sh
+      -c
+    Args:
+      while true; do
+        echo "calling backend..."
+        curl -sS http://backend-svc-wrong.default.svc.cluster.local/ || true
+        sleep 5
+      done
+      
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  64Mi
+    Requests:
+      cpu:        50m
+      memory:     50Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-9zzpt (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-9zzpt:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From               Message
+  ----     ------     ----                 ----               -------
+  Normal   Scheduled  17m                  default-scheduler  Successfully assigned default/frontend-deploy-ccf677f5-878n8 to atlan-worker
+  Normal   Pulling    13m (x5 over 17m)    kubelet            Pulling image "curlimages/curl:8.0.1"
+  Warning  Failed     13m (x5 over 16m)    kubelet            Failed to pull image "curlimages/curl:8.0.1": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/curlimages/curl:8.0.1": failed to resolve reference "docker.io/curlimages/curl:8.0.1": docker.io/curlimages/curl:8.0.1: not found
+  Warning  Failed     13m (x5 over 16m)    kubelet            Error: ErrImagePull
+  Normal   BackOff    118s (x65 over 16m)  kubelet            Back-off pulling image "curlimages/curl:8.0.1"
+  Warning  Failed     106s (x66 over 16m)  kubelet            Error: ImagePullBackOff

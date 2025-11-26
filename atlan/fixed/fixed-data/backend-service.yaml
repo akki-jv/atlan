@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"backend-svc","namespace":"default"},"spec":{"ports":[{"port":80,"protocol":"TCP","targetPort":9000}],"selector":{"app":"backend"}}}
+  creationTimestamp: "2025-11-25T18:11:45Z"
+  name: backend-svc
+  namespace: default
+  resourceVersion: "6157"
+  uid: 9326924c-9df3-4234-8616-4f8c16b5793d
+spec:
+  clusterIP: 10.96.16.169
+  clusterIPs:
+  - 10.96.16.169
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9000
+  selector:
+    app: backend-api
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

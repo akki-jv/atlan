@@ -1,0 +1,70 @@
+Name:             frontend-deploy-7956ddbd89-vprh2
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             atlan-worker/172.18.0.2
+Start Time:       Wed, 26 Nov 2025 00:10:07 +0530
+Labels:           app=frontend
+                  pod-template-hash=7956ddbd89
+Annotations:      <none>
+Status:           Running
+IP:               10.244.1.3
+IPs:
+  IP:           10.244.1.3
+Controlled By:  ReplicaSet/frontend-deploy-7956ddbd89
+Containers:
+  frontend:
+    Container ID:  containerd://3904bde5f5b3c04064a81ef5cc0be72d5526599e4bfa26067158741ec082a7af
+    Image:         curlimages/curl:latest
+    Image ID:      docker.io/curlimages/curl@sha256:935d9100e9ba842cdb060de42472c7ca90cfe9a7c96e4dacb55e79e560b3ff40
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/sh
+      -c
+    Args:
+      while true; do
+        echo "calling backend..."
+        curl -sS http://backend-svc-wrong.default.svc.cluster.local/ || true
+        sleep 5
+      done
+      
+    State:          Running
+      Started:      Wed, 26 Nov 2025 00:10:14 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  64Mi
+    Requests:
+      cpu:        50m
+      memory:     50Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-fskdv (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-fskdv:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  9m4s   default-scheduler  Successfully assigned default/frontend-deploy-7956ddbd89-vprh2 to atlan-worker
+  Normal  Pulling    9m4s   kubelet            Pulling image "curlimages/curl:latest"
+  Normal  Pulled     8m57s  kubelet            Successfully pulled image "curlimages/curl:latest" in 7.025s (7.025s including waiting). Image size: 10184433 bytes.
+  Normal  Created    8m57s  kubelet            Created container: frontend
+  Normal  Started    8m57s  kubelet            Started container frontend

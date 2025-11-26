@@ -1,0 +1,63 @@
+Name:             backend-deploy-6dd658b4bd-5w5k5
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             atlan-worker2/172.18.0.4
+Start Time:       Tue, 25 Nov 2025 23:41:45 +0530
+Labels:           app=backend-api
+                  pod-template-hash=6dd658b4bd
+Annotations:      <none>
+Status:           Running
+IP:               10.244.2.2
+IPs:
+  IP:           10.244.2.2
+Controlled By:  ReplicaSet/backend-deploy-6dd658b4bd
+Containers:
+  backend:
+    Container ID:  containerd://c90f58b494c7d51ce7c17a2dd523938ab21b12a998d6d3ebe815db9060c3fe23
+    Image:         hashicorp/http-echo:0.2.3
+    Image ID:      docker.io/hashicorp/http-echo@sha256:ba27d460cd1f22a1a4331bdf74f4fccbc025552357e8a3249c40ae216275de96
+    Port:          9000/TCP
+    Host Port:     0/TCP
+    Args:
+      -text=hello from backend
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    2
+      Started:      Tue, 25 Nov 2025 23:58:00 +0530
+      Finished:     Tue, 25 Nov 2025 23:58:00 +0530
+    Ready:          False
+    Restart Count:  8
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-gpwgd (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-gpwgd:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From               Message
+  ----     ------     ----                 ----               -------
+  Normal   Scheduled  18m                  default-scheduler  Successfully assigned default/backend-deploy-6dd658b4bd-5w5k5 to atlan-worker2
+  Normal   Pulling    18m                  kubelet            Pulling image "hashicorp/http-echo:0.2.3"
+  Normal   Pulled     18m                  kubelet            Successfully pulled image "hashicorp/http-echo:0.2.3" in 5.477s (5.477s including waiting). Image size: 1535358 bytes.
+  Warning  BackOff    3m3s (x72 over 18m)  kubelet            Back-off restarting failed container backend in pod backend-deploy-6dd658b4bd-5w5k5_default(192fa2a3-92fc-46b8-bd94-66f1e8ab1011)
+  Normal   Created    2m (x9 over 18m)     kubelet            Created container: backend
+  Normal   Started    2m (x9 over 18m)     kubelet            Started container backend
+  Normal   Pulled     2m (x8 over 18m)     kubelet            Container image "hashicorp/http-echo:0.2.3" already present on machine

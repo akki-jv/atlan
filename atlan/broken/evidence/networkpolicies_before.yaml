@@ -1,0 +1,44 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"name":"block-dns-egress","namespace":"default"},"spec":{"egress":[{"ports":[{"port":443,"protocol":"TCP"}],"to":[{"ipBlock":{"cidr":"10.0.0.0/8"}}]}],"podSelector":{},"policyTypes":["Egress"]}}
+    creationTimestamp: "2025-11-25T18:11:45Z"
+    generation: 1
+    name: block-dns-egress
+    namespace: default
+    resourceVersion: "2908"
+    uid: 1d19571c-681f-4d74-8edb-4df937aa6425
+  spec:
+    egress:
+    - ports:
+      - port: 443
+        protocol: TCP
+      to:
+      - ipBlock:
+          cidr: 10.0.0.0/8
+    podSelector: {}
+    policyTypes:
+    - Egress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"name":"deny-everything-egress","namespace":"default"},"spec":{"egress":[],"podSelector":{},"policyTypes":["Egress"]}}
+    creationTimestamp: "2025-11-26T11:16:39Z"
+    generation: 2
+    name: deny-everything-egress
+    namespace: default
+    resourceVersion: "47017"
+    uid: 9fde86e2-1df4-4ef0-93e1-e06151f7fb6e
+  spec:
+    podSelector: {}
+    policyTypes:
+    - Egress
+kind: List
+metadata:
+  resourceVersion: ""

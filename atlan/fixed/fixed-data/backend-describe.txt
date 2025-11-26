@@ -1,0 +1,64 @@
+Name:             backend-deploy-76b575b758-krx4v
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             atlan-worker2/172.18.0.4
+Start Time:       Wed, 26 Nov 2025 00:17:25 +0530
+Labels:           app=backend-api
+                  pod-template-hash=76b575b758
+Annotations:      <none>
+Status:           Running
+IP:               10.244.2.3
+IPs:
+  IP:           10.244.2.3
+Controlled By:  ReplicaSet/backend-deploy-76b575b758
+Containers:
+  backend:
+    Container ID:  containerd://0f69c16ad9cfac894e13241c41b7c020417924dedb7e4cf869c1644018e734be
+    Image:         python:3.11-alpine
+    Image ID:      docker.io/library/python@sha256:610ede222c1fa9675c694c99429f8d2c1b4e243f1982246da9e540eb5800ee4a
+    Port:          9000/TCP
+    Host Port:     0/TCP
+    Command:
+      python
+      -m
+      http.server
+      9000
+    State:          Running
+      Started:      Wed, 26 Nov 2025 00:17:34 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      memory:  256Mi
+    Requests:
+      cpu:        50m
+      memory:     64Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-dq8zs (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-dq8zs:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  107s  default-scheduler  Successfully assigned default/backend-deploy-76b575b758-krx4v to atlan-worker2
+  Normal  Pulling    107s  kubelet            Pulling image "python:3.11-alpine"
+  Normal  Pulled     98s   kubelet            Successfully pulled image "python:3.11-alpine" in 8.836s (8.836s including waiting). Image size: 20642860 bytes.
+  Normal  Created    98s   kubelet            Created container: backend
+  Normal  Started    98s   kubelet            Started container backend

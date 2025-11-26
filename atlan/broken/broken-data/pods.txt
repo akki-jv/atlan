@@ -1,0 +1,3 @@
+NAME                              READY   STATUS             RESTARTS       AGE   IP           NODE            NOMINATED NODE   READINESS GATES   LABELS
+backend-deploy-6dd658b4bd-5w5k5   0/1     CrashLoopBackOff   7 (5m7s ago)   16m   10.244.2.2   atlan-worker2   <none>           <none>            app=backend-api,pod-template-hash=6dd658b4bd
+frontend-deploy-ccf677f5-878n8    0/1     ImagePullBackOff   0              16m   10.244.1.2   atlan-worker    <none>           <none>            app=frontend,pod-template-hash=ccf677f5
